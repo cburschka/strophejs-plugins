@@ -1,17 +1,14 @@
-/*
+/**
  * This plugin is distributed under the terms of the MIT licence.
  *
- * Copyright (c) Christoph Burschka
+ * Copyright Christoph Burschka
  */
 
 /**
  * File: strophe.time.js
- * A Strophe plugin for Entity Time ( http://xmpp.org/extensions/xep-0202.html )
+ * A Strophe plugin for Entity Time (http://xmpp.org/extensions/xep-0202.html)
  */
 
-/**
- * Create a plugin for XEP-0202 (Entity Time).
- */
 Strophe.addNamespace('TIME', 'urn:xmpp:time');
 Strophe.addConnectionPlugin('time', {
   _c: null,
@@ -47,15 +44,15 @@ Strophe.addConnectionPlugin('time', {
    * (Object) request - The incoming request stanza
    */
   sendTime: function(request) {
-	  const iq = $iq({
-	    type: 'result',
-	    to: request.getAttribute('from'),
-	    id: request.getAttribute('id')
-	  })
-	    .c('time', {xmlns: Strophe.NS.TIME})
-      .c('utc', moment().toISOString())
-      .c('tzo', moment().format('Z'));
-	  this._c.sendIQ(iq);
+    const iq = $iq({
+      type: 'result',
+      to: request.getAttribute('from'),
+      id: request.getAttribute('id')
+    })
+      .c('time', {xmlns: Strophe.NS.TIME})
+      .c('utc', {}, moment().toISOString())
+      .c('tzo', {}, moment().format('Z'));
+    this._c.sendIQ(iq);
   },
 
   /**
@@ -68,6 +65,6 @@ Strophe.addConnectionPlugin('time', {
    * A reference to the handler that can be used to remove it.
    */
   addTimeHandler: function(handler) {
-	  return this._c.addHandler(handler, Strophe.NS.TIME, 'iq', 'time');
+    return this._c.addHandler(handler, Strophe.NS.TIME, 'iq', 'get');
   }
 });
