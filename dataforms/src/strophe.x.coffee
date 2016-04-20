@@ -431,10 +431,10 @@ $field = (opt) -> new Strophe.x.Field opt
 $opt = (opt) -> new Strophe.x.Option opt
 $item = (opts) -> new Strophe.x.Item opts
 
+Strophe.addNamespace 'DATA', 'jabber:x:data'
 Strophe.addConnectionPlugin 'x',
 
   init : (conn) ->
-    Strophe.addNamespace 'DATA', 'jabber:x:data'
     conn.disco.addFeature Strophe.NS.DATA if conn.disco?.addFeature?
     conn.disco.addNode Strophe.NS.DATA, {items:[]} if conn.disco?.addNode?
 

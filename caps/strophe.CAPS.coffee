@@ -11,13 +11,13 @@
 # - strophe.disco.js (by François de Metz)
 # - sha1.js
 
+Strophe.addNamespace 'CAPS', "http://jabber.org/protocol/caps"
 Strophe.addConnectionPlugin 'caps', (->
 
   conn = null
 
   init = ( c ) ->
     conn = c
-    Strophe.addNamespace 'CAPS', "http://jabber.org/protocol/caps"
     if conn.disco is undefined
       throw new Error "disco plugin required!"
     if b64_sha1 is undefined

@@ -15,6 +15,7 @@
 
   function noop() {}
 
+  Strophe.addNamespace('IBB', 'http://jabber.org/protocol/ibb');
   Strophe.addConnectionPlugin('ibb', {
 
     _c: null,
@@ -22,7 +23,6 @@
 
     init: function (c) {  
       this._c = c;
-      Strophe.addNamespace('IBB', 'http://jabber.org/protocol/ibb');
       c.addHandler(this._receive.bind(this), Strophe.NS.IBB, 'iq', 'set');
     },
 

@@ -11,6 +11,7 @@
  * A Strophe plugin for XMPP Ping ( http://xmpp.org/extensions/xep-0199.html )
  */
 
+Strophe.addNamespace('PING', "urn:xmpp:ping");
 Strophe.addConnectionPlugin('ping', {
 	_c: null,
 
@@ -18,7 +19,6 @@ Strophe.addConnectionPlugin('ping', {
 	init: function(conn)
 	{
 		this._c = conn;
-		Strophe.addNamespace('PING', "urn:xmpp:ping");
 	},
 
 	/**

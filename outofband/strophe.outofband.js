@@ -1,12 +1,12 @@
 // Kay Tsar
 // 15 May 2013
 
+Strophe.addNamespace('OUTOFBAND', 'jabber:iq:oob');
 Strophe.addConnectionPlugin('outofband', {
     _conn: null,
 
     init: function(conn) {
         this._conn = conn;
-        Strophe.addNamespace('OUTOFBAND', 'jabber:iq:oob');
     },
 	
     /* sendIqResult

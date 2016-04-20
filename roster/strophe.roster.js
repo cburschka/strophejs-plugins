@@ -13,6 +13,9 @@
  *  * authorize/unauthorize
  *  * roster versioning (xep 237)
  */
+
+Strophe.addNamespace('ROSTER_VER', 'urn:xmpp:features:rosterver');
+Strophe.addNamespace('NICK', 'http://jabber.org/protocol/nick');
 Strophe.addConnectionPlugin('roster',
 {
     /** Function: init
@@ -98,9 +101,6 @@ Strophe.addConnectionPlugin('roster',
             callback = newCallback;
             _attach.apply(conn, [jid, sid, rid, callback, wait, hold, wind]);
         };
-
-        Strophe.addNamespace('ROSTER_VER', 'urn:xmpp:features:rosterver');
-        Strophe.addNamespace('NICK', 'http://jabber.org/protocol/nick');
     },
     /** Function: supportVersioning
      * return true if roster versioning is enabled on server

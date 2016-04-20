@@ -9,6 +9,7 @@
  *
  * @class streamManagement
  */
+Strophe.addNamespace('SM', this._NS);
 Strophe.addConnectionPlugin('streamManagement', {
 
     /**
@@ -93,7 +94,6 @@ Strophe.addConnectionPlugin('streamManagement', {
 
     init: function(conn) {
         this._c = conn;
-        Strophe.addNamespace('SM', this._NS);
 
         // Storing origina send function to use additional logic
         this._originalSend = this._c.send;

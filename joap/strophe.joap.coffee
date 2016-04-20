@@ -332,11 +332,11 @@ class JOAPClass
       cb = params; params = null
     methodCall method, getAddress(@jid.user, @jid.domain, instance), params, cb
 
+Strophe.addNamespace "JOAP", JOAP_NS
 Strophe.addConnectionPlugin 'joap', do ->
 
   init = (c) ->
     conn = c
-    Strophe.addNamespace "JOAP", JOAP_NS
 
     if not conn.hasOwnProperty "disco"
       Strophe.warn "You need the discovery plugin \

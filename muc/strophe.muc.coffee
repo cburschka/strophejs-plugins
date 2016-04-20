@@ -7,6 +7,11 @@
     Andreas Guth <guth@dbis.rwth-aachen.de>
 ###
 
+Strophe.addNamespace 'MUC_OWNER',     Strophe.NS.MUC+"#owner"
+Strophe.addNamespace 'MUC_ADMIN',     Strophe.NS.MUC+"#admin"
+Strophe.addNamespace 'MUC_USER',      Strophe.NS.MUC+"#user"
+Strophe.addNamespace 'MUC_ROOMCONF',  Strophe.NS.MUC+"#roomconfig"
+Strophe.addNamespace 'MUC_REGISTER', "jabber:iq:register"
 Strophe.addConnectionPlugin 'muc',
   _connection: null
   rooms: {}
@@ -21,11 +26,6 @@ Strophe.addConnectionPlugin 'muc',
     @_muc_handler = null
     # extend name space
     #   NS.MUC - XMPP Multi-user chat namespace from XEP 45.
-    Strophe.addNamespace 'MUC_OWNER',     Strophe.NS.MUC+"#owner"
-    Strophe.addNamespace 'MUC_ADMIN',     Strophe.NS.MUC+"#admin"
-    Strophe.addNamespace 'MUC_USER',      Strophe.NS.MUC+"#user"
-    Strophe.addNamespace 'MUC_ROOMCONF',  Strophe.NS.MUC+"#roomconfig"
-    Strophe.addNamespace 'MUC_REGISTER', "jabber:iq:register"
 
   ###Function
   Join a multi-user chat room

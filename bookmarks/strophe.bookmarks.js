@@ -1,11 +1,11 @@
+Strophe.addNamespace('PRIVATE', 'jabber:iq:private');
+Strophe.addNamespace('BOOKMARKS', 'storage:bookmarks');
+Strophe.addNamespace('PRIVACY', 'jabber:iq:privacy');
+Strophe.addNamespace('DELAY', 'jabber:x:delay');
+Strophe.addNamespace('PUBSUB', 'http://jabber.org/protocol/pubsub');
 Strophe.addConnectionPlugin('bookmarks', {
 	init : function(connection) {
 		this.connection = connection;
-		Strophe.addNamespace('PRIVATE', 'jabber:iq:private');
-		Strophe.addNamespace('BOOKMARKS', 'storage:bookmarks');
-		Strophe.addNamespace('PRIVACY', 'jabber:iq:privacy');
-		Strophe.addNamespace('DELAY', 'jabber:x:delay');
-		Strophe.addNamespace('PUBSUB', 'http://jabber.org/protocol/pubsub');
 		
 	},
 	/**

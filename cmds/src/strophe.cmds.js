@@ -364,6 +364,7 @@
     create: create
   };
 
+  Strophe.addNamespace("COMMANDS", CMD);
   Strophe.addConnectionPlugin("cmds", {
     _conn: null,
     init: function(c) {
@@ -371,7 +372,6 @@
       conn = c;
       this._conn = conn;
       this._command_handlers = {};
-      Strophe.addNamespace("COMMANDS", CMD);
       conn.disco.addNode(Strophe.NS.COMMANDS, {
         items: []
       });

@@ -1,3 +1,4 @@
+Strophe.addNamespace('RECEIPTS', 'urn:xmpp:receipts');
 Strophe.addConnectionPlugin('receipts', {
     _conn: null,
     _msgQueue: {},
@@ -7,7 +8,6 @@ Strophe.addConnectionPlugin('receipts', {
 
     init: function(conn) {
         this._conn = conn;
-        Strophe.addNamespace('RECEIPTS', 'urn:xmpp:receipts');
     },
 	
 	

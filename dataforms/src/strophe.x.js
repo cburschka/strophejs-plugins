@@ -819,10 +819,10 @@
     return new Strophe.x.Item(opts);
   };
 
+  Strophe.addNamespace('DATA', 'jabber:x:data');
   Strophe.addConnectionPlugin('x', {
     init: function(conn) {
       var _ref, _ref1;
-      Strophe.addNamespace('DATA', 'jabber:x:data');
       if (((_ref = conn.disco) != null ? _ref.addFeature : void 0) != null) {
         conn.disco.addFeature(Strophe.NS.DATA);
       }

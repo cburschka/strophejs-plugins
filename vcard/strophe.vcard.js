@@ -38,11 +38,11 @@ CoffeeScript port: Andreas Guth (guth@dbis.rwth-aachen.de)
     return iq;
   };
 
+  Strophe.addNamespace('VCARD', 'vcard-temp');
   Strophe.addConnectionPlugin('vcard', {
     _connection: null,
     init: function(conn) {
-      this._connection = conn;
-      return Strophe.addNamespace('VCARD', 'vcard-temp');
+      return this._connection = conn;
     },
 
     /*Function

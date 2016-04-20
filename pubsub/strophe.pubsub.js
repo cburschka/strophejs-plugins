@@ -90,6 +90,38 @@ Strophe.Builder.prototype.children = function (object) {
 };
 
 // TODO Ideas Adding possible conf values?
+
+/* extend name space
+ *  NS.PUBSUB - XMPP Publish Subscribe namespace
+ *              from XEP 60.
+ *
+ *  NS.PUBSUB_SUBSCRIBE_OPTIONS - XMPP pubsub
+ *                                options namespace from XEP 60.
+ */
+Strophe.addNamespace('PUBSUB',"http://jabber.org/protocol/pubsub");
+Strophe.addNamespace('PUBSUB_SUBSCRIBE_OPTIONS',
+                     Strophe.NS.PUBSUB+"#subscribe_options");
+Strophe.addNamespace('PUBSUB_ERRORS',Strophe.NS.PUBSUB+"#errors");
+Strophe.addNamespace('PUBSUB_EVENT',Strophe.NS.PUBSUB+"#event");
+Strophe.addNamespace('PUBSUB_OWNER',Strophe.NS.PUBSUB+"#owner");
+Strophe.addNamespace('PUBSUB_AUTO_CREATE',
+                     Strophe.NS.PUBSUB+"#auto-create");
+Strophe.addNamespace('PUBSUB_PUBLISH_OPTIONS',
+                     Strophe.NS.PUBSUB+"#publish-options");
+Strophe.addNamespace('PUBSUB_NODE_CONFIG',
+                     Strophe.NS.PUBSUB+"#node_config");
+Strophe.addNamespace('PUBSUB_CREATE_AND_CONFIGURE',
+                     Strophe.NS.PUBSUB+"#create-and-configure");
+Strophe.addNamespace('PUBSUB_SUBSCRIBE_AUTHORIZATION',
+                     Strophe.NS.PUBSUB+"#subscribe_authorization");
+Strophe.addNamespace('PUBSUB_GET_PENDING',
+                     Strophe.NS.PUBSUB+"#get-pending");
+Strophe.addNamespace('PUBSUB_MANAGE_SUBSCRIPTIONS',
+                     Strophe.NS.PUBSUB+"#manage-subscriptions");
+Strophe.addNamespace('PUBSUB_META_DATA',
+                      Strophe.NS.PUBSUB+"#meta-data");
+Strophe.addNamespace('ATOM', "http://www.w3.org/2005/Atom");
+
 /* Extend Strophe.Connection to have member 'pubsub'.
  */
 Strophe.addConnectionPlugin('pubsub', {
@@ -110,37 +142,6 @@ Extend connection object to have plugin name 'pubsub'.
         /*
         Function used to setup plugin.
         */
-
-        /* extend name space
-        *  NS.PUBSUB - XMPP Publish Subscribe namespace
-        *              from XEP 60.
-        *
-        *  NS.PUBSUB_SUBSCRIBE_OPTIONS - XMPP pubsub
-        *                                options namespace from XEP 60.
-        */
-        Strophe.addNamespace('PUBSUB',"http://jabber.org/protocol/pubsub");
-        Strophe.addNamespace('PUBSUB_SUBSCRIBE_OPTIONS',
-                             Strophe.NS.PUBSUB+"#subscribe_options");
-        Strophe.addNamespace('PUBSUB_ERRORS',Strophe.NS.PUBSUB+"#errors");
-        Strophe.addNamespace('PUBSUB_EVENT',Strophe.NS.PUBSUB+"#event");
-        Strophe.addNamespace('PUBSUB_OWNER',Strophe.NS.PUBSUB+"#owner");
-        Strophe.addNamespace('PUBSUB_AUTO_CREATE',
-                             Strophe.NS.PUBSUB+"#auto-create");
-        Strophe.addNamespace('PUBSUB_PUBLISH_OPTIONS',
-                             Strophe.NS.PUBSUB+"#publish-options");
-        Strophe.addNamespace('PUBSUB_NODE_CONFIG',
-                             Strophe.NS.PUBSUB+"#node_config");
-        Strophe.addNamespace('PUBSUB_CREATE_AND_CONFIGURE',
-                             Strophe.NS.PUBSUB+"#create-and-configure");
-        Strophe.addNamespace('PUBSUB_SUBSCRIBE_AUTHORIZATION',
-                             Strophe.NS.PUBSUB+"#subscribe_authorization");
-        Strophe.addNamespace('PUBSUB_GET_PENDING',
-                             Strophe.NS.PUBSUB+"#get-pending");
-        Strophe.addNamespace('PUBSUB_MANAGE_SUBSCRIPTIONS',
-                             Strophe.NS.PUBSUB+"#manage-subscriptions");
-        Strophe.addNamespace('PUBSUB_META_DATA',
-                             Strophe.NS.PUBSUB+"#meta-data");
-        Strophe.addNamespace('ATOM', "http://www.w3.org/2005/Atom");
 
         if (conn.disco)
             conn.disco.addFeature(Strophe.NS.PUBSUB);

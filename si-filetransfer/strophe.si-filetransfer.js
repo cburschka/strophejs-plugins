@@ -24,6 +24,12 @@
     return ok;
   }
 
+  Strophe.addNamespace('SI', 'http://jabber.org/protocol/si');
+  Strophe.addNamespace('SI_FILE_TRANSFER',
+    Strophe.NS.SI + '/profile/file-transfer');
+  Strophe.addNamespace('FEATURE_NEG',
+    'http://jabber.org/protocol/feature-neg');
+
   Strophe.addConnectionPlugin('si_filetransfer', {
     
     _c: null,
@@ -32,12 +38,6 @@
     init: function (c) {  
 
       this._c = c;
-
-      Strophe.addNamespace('SI', 'http://jabber.org/protocol/si');
-      Strophe.addNamespace('SI_FILE_TRANSFER',
-        Strophe.NS.SI + '/profile/file-transfer');
-      Strophe.addNamespace('FEATURE_NEG',
-        'http://jabber.org/protocol/feature-neg');
 
       c.addHandler(this._receive.bind(this), Strophe.NS.SI, 'iq', 'set');
 

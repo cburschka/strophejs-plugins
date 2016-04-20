@@ -17,6 +17,7 @@ This library is free software; you can redistribute it and/or modify it
 * File: strophe.register.js
 * A Strophe plugin for XMPP In-Band Registration.
 */
+Strophe.addNamespace('REGISTER', 'jabber:iq:register');
 Strophe.addConnectionPlugin('register', {
     _connection: null,
 
@@ -34,7 +35,6 @@ Strophe.addConnectionPlugin('register', {
          *  NS.REGISTER - In-Band Registration
          *              from XEP 77.
          */
-        Strophe.addNamespace('REGISTER', 'jabber:iq:register');
         Strophe.Status.REGIFAIL        = i + 1;
         Strophe.Status.REGISTER        = i + 2;
         Strophe.Status.REGISTERED      = i + 3;

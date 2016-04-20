@@ -597,11 +597,11 @@ Copyright 2012 - 2014 (c) Markus Kohlhase <mail@markus-kohlhase.de>
 
   })();
 
+  Strophe.addNamespace("JOAP", JOAP_NS);
   Strophe.addConnectionPlugin('joap', (function() {
     var init;
     init = function(c) {
       conn = c;
-      Strophe.addNamespace("JOAP", JOAP_NS);
       if (!conn.hasOwnProperty("disco")) {
         return Strophe.warn("You need the discovery plugin to have JOAP fully implemented.");
       } else {

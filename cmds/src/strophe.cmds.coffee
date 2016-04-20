@@ -205,6 +205,7 @@ Strophe.Commands =
   RemoteCommand: RemoteCommand
   create: create
 
+Strophe.addNamespace "COMMANDS", CMD
 Strophe.addConnectionPlugin "cmds",
   _conn: null
 
@@ -212,7 +213,6 @@ Strophe.addConnectionPlugin "cmds",
     conn = c
     @_conn = conn
     @_command_handlers = {}
-    Strophe.addNamespace "COMMANDS", CMD
     conn.disco.addNode Strophe.NS.COMMANDS, items:[]
     @_cmds = conn.disco.features[CMD]
 

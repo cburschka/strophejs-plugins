@@ -2,13 +2,13 @@
  * Chat state notifications (XEP 0085) plugin
  * @see http://xmpp.org/extensions/xep-0085.html
  */
+Strophe.addNamespace('CHATSTATES', 'http://jabber.org/protocol/chatstates');
 Strophe.addConnectionPlugin('chatstates',
 {
 	init: function (connection)
 	{
 		this._connection = connection;
 
-		Strophe.addNamespace('CHATSTATES', 'http://jabber.org/protocol/chatstates');
 	},
 
 	statusChanged: function (status)

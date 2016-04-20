@@ -8,6 +8,7 @@
  * Jabber-RPC plugin (XEP-0009)
  * Allow the management of RPC
  */
+Strophe.addNamespace("RPC", "jabber:iq:rpc");
 Strophe.addConnectionPlugin("rpc", {
 
   _connection : undefined,
@@ -32,8 +33,6 @@ Strophe.addConnectionPlugin("rpc", {
     this.jidWhiteList    = [];
     this.nodeWhiteList   = [];
     this.domainWhiteList = [];
-
-    Strophe.addNamespace("RPC", "jabber:iq:rpc");
 
     if (!connection.hasOwnProperty("disco")) {
       Strophe.warn("You need the discovery plugin " +

@@ -10,6 +10,11 @@ var Occupant, RoomConfig, XmppRoom,
     hasProp = {}.hasOwnProperty,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
+Strophe.addNamespace('MUC_OWNER', Strophe.NS.MUC + "#owner");
+Strophe.addNamespace('MUC_ADMIN', Strophe.NS.MUC + "#admin");
+Strophe.addNamespace('MUC_USER', Strophe.NS.MUC + "#user");
+Strophe.addNamespace('MUC_ROOMCONF', Strophe.NS.MUC + "#roomconfig");
+Strophe.addNamespace('MUC_REGISTER', "jabber:iq:register");
 Strophe.addConnectionPlugin('muc', {
   _connection: null,
   rooms: {},
@@ -21,12 +26,7 @@ Strophe.addConnectionPlugin('muc', {
    */
   init: function(conn) {
     this._connection = conn;
-    this._muc_handler = null;
-    Strophe.addNamespace('MUC_OWNER', Strophe.NS.MUC + "#owner");
-    Strophe.addNamespace('MUC_ADMIN', Strophe.NS.MUC + "#admin");
-    Strophe.addNamespace('MUC_USER', Strophe.NS.MUC + "#user");
-    Strophe.addNamespace('MUC_ROOMCONF', Strophe.NS.MUC + "#roomconfig");
-    return Strophe.addNamespace('MUC_REGISTER', "jabber:iq:register");
+    return this._muc_handler = null;
   },
 
   /*Function

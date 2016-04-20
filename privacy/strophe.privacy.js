@@ -6,6 +6,7 @@
 */
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
+Strophe.addNamespace('PRIVACY', "jabber:iq:privacy");
 Strophe.addConnectionPlugin('privacy', {
   _connection: null,
 
@@ -29,7 +30,6 @@ Strophe.addConnectionPlugin('privacy', {
   init: function(conn) {
     this._connection = conn;
     this._listChangeCallback = null;
-    Strophe.addNamespace('PRIVACY', "jabber:iq:privacy");
   },
 
   isInitialized: function() {

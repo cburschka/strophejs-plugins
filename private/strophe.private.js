@@ -9,6 +9,7 @@
 * A Strophe plugin for XMPP Private XML Storage ( http://xmpp.org/extensions/xep-0049.html )
 */
 
+Strophe.addNamespace( 'PRIVATE', "jabber:iq:private" );
 Strophe.addConnectionPlugin('private',
 {
   _connection: null,
@@ -18,7 +19,6 @@ Strophe.addConnectionPlugin('private',
   init: function( conn ){
 
     this._connection = conn;
-    Strophe.addNamespace( 'PRIVATE', "jabber:iq:private" );
   },
 
   /**

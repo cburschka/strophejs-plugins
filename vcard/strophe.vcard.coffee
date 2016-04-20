@@ -18,12 +18,12 @@ buildIq = (type, jid, vCardEl) ->
     iq.cnode vCardEl if vCardEl
     iq
 
+Strophe.addNamespace 'VCARD', 'vcard-temp'
 Strophe.addConnectionPlugin 'vcard',
     _connection: null
     # Called by Strophe.Connection constructor
     init: (conn) ->
         this._connection = conn
-        Strophe.addNamespace 'VCARD', 'vcard-temp'
 
     ###Function
       Retrieve a vCard for a JID/Entity

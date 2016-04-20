@@ -11,13 +11,13 @@
  *
  */
 
+Strophe.addNamespace('MAM', 'urn:xmpp:mam:tmp');
 Strophe.addConnectionPlugin('mam', {
   _c: null,
   _p: [ "with", "start", "end" ],
 init:
   function(conn) {
     this._c = conn;
-    Strophe.addNamespace('MAM', 'urn:xmpp:mam:tmp');
   },
 query:
   function(jid, options) {

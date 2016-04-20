@@ -12,12 +12,12 @@
 (function(){
 'use strict';
 
+Strophe.addNamespace('MAM', 'urn:xmpp:mam:0');
 Strophe.addConnectionPlugin('mam', {
     _c: null,
     _p: [ 'with', 'start', 'end' ],
     init: function (conn) {
         this._c = conn;
-        Strophe.addNamespace('MAM', 'urn:xmpp:mam:0');
     },
     query: function (jid, options) {
         var _p = this._p;

@@ -11,7 +11,7 @@
  * Copyright:
  *   - Michael Weibel <michael.weibel@gmail.com>
  */
-
+ Strophe.addNamespace('CAPS', 'http://jabber.org/protocol/caps');
  Strophe.addConnectionPlugin('caps', {
 	/** Constant: HASH
 	 * Hash used
@@ -56,8 +56,6 @@
 	 */
 	init: function(conn) {
 		this._connection = conn;
-
-		Strophe.addNamespace('CAPS', 'http://jabber.org/protocol/caps');
 
 		if (!this._connection.disco) {
 			throw "Caps plugin requires the disco plugin to be installed.";
