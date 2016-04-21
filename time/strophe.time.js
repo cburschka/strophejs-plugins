@@ -38,7 +38,7 @@ Strophe.addConnectionPlugin('time', {
   },
 
   /**
-   * Function: pong
+   * Function: sendTime
    *
    * Parameters:
    * (Object) request - The incoming request stanza
