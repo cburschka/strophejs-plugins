@@ -2,7 +2,7 @@
 (function() {
   Strophe.addNamespace('CAPS', "http://jabber.org/protocol/caps");
   Strophe.addConnectionPlugin('caps', (function() {
-    var addFeature, conn, createCapsNode, generateVerificationString, init, propertySort, removeFeature, sendPres;
+    var conn, createCapsNode, generateVerificationString, init, propertySort;
     conn = null;
     init = function(c) {
       conn = c;
@@ -14,18 +14,9 @@
       }
       conn.disco.addFeature(Strophe.NS.CAPS);
       conn.disco.addFeature(Strophe.NS.DISCO_INFO);
-      if (conn.disco._identities.length === 0) {
-        return conn.disco.addIdentity("client", "pc", "strophejs", "");
-      }
     };
-    addFeature = function(feature) {
-      return conn.disco.addFeature(feature);
-    };
-    removeFeature = function(feature) {
-      return conn.disco.removeFeature(feature);
-    };
-    sendPres = function() {
-      return conn.send($pres().cnode(createCapsNode().tree()));
+    pres = function(attrs) {
+      return $pres(attrs).cnode(createCapsNode().tree())).up();
     };
     createCapsNode = function() {
       var node;
@@ -81,9 +72,6 @@
     };
     return {
       init: init,
-      removeFeature: removeFeature,
-      addFeature: addFeature,
-      sendPres: sendPres,
       generateVerificationString: generateVerificationString,
       createCapsNode: createCapsNode
     };
