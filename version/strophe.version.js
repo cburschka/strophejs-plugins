@@ -29,7 +29,7 @@ Strophe.addConnectionPlugin('version', {
    */
   getVersion: function(to, timeout) {
     return new Promise((resolve, reject) => {
-      const id = this._c.getUniqueId('time');
+      const id = this._c.getUniqueId('version');
       const iq = $iq({type: 'get', to, id})
         .c('query', {xmlns: Strophe.NS.VERSION});
       this._c.sendIQ(iq, resolve, reject, timeout);
