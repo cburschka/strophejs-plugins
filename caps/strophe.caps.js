@@ -8,7 +8,6 @@
       this._c = conn;
 
       if (!conn.disco) throw new Error('disco plugin required!');
-      if (!b64_sha1) throw new Error('SHA-1 library required!');
 
       conn.disco.addFeature(Strophe.NS.CAPS);
       conn.disco.addFeature(Strophe.NS.DISCO_INFO);
@@ -30,7 +29,7 @@
         xmlns: Strophe.NS.CAPS,
         hash: 'sha-1',
         node,
-        ver: this.ver()
+        ver: SHA1.b64_sha1(this.ver()),
       });
     },
 
@@ -51,7 +50,7 @@
       for (let ns of features)
         S += String(ns) + '<';
 
-      return b64_sha1(S) + '=';
+      return S;
     }
   });
 
