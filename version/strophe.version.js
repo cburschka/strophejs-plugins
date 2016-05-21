@@ -41,9 +41,11 @@ Strophe.addConnectionPlugin('version', {
    *
    * Parameters:
    * (Object) request - The incoming request stanza
-   * (Object) version - The version information to send.
+   * (String) name - The client name.
+   * (String) version - The version string
+   * (String) os (optional) - The operating system or platform.
    */
-  sendVersion: function(request, {name, version, os}) {
+  sendVersion: function(request, name, version, os) {
     const iq = $iq({
       type: 'result',
       to: request.getAttribute('from'),
