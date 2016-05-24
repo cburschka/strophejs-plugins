@@ -34,7 +34,7 @@ Strophe.addConnectionPlugin('ping', {
       const id = this._c.getUniqueId('ping');
       const iq = $iq({type: 'get', to: jid, id: id}).c(
         'ping', {xmlns: Strophe.NS.PING});
-      this._c.sendIQ(iq, resolve, reject timeout);
+      this._c.sendIQ(iq, resolve, reject, timeout);
     });
   },
 
