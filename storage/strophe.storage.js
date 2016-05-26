@@ -31,20 +31,18 @@ Strophe.addConnectionPlugin('storage', {
   /**
    * Send data to storage.
    *
-   * @param {DOM} data A root DOM node (or Strophe $build() object) to store.
-   * @param {int} timeout The (optional) timeout for the request.
+   * @param {String} root The root element to store.
+   * @param {String} namespace The namespace of the element.
    *
-   * @return {Promise} A promise that resolves to the response stanza.
+   * @return {Object} A Builder that can be filled with data and sent with .send().
    */
-  set: function(data, timeout) {
-    // Convenience feature: Allow passing a $build() object directly.
-    if (data && data.tree === Strophe.Builder.prototype.tree) data = data.tree();
-
+  set: function(root, namespace) {
     const id = this._c.getUniqueId('storage');
     const iq = $iq({type: 'set', id});
-    iq.c('query', {xmlns: Strophe.NS.STORAGE}).cnode(data);
-    return new Promise((resolve, reject) => {
+    iq.c('query', {xmlns: Strophe.NS.STORAGE}).c(root, {xmlns: namespace});
+    iq.send = (timeout) => new Promise((resolve, reject) => {
       this._c.sendIQ(iq, resolve, reject, timeout);
     });
+    return iq;
   }
 });
